@@ -62,9 +62,7 @@ def main(argv):
         print(f"{bcolors.FAIL}Error: '{directory}' does not exist.{bcolors.ENDC}")
         sys.exit(92)
     if not extension:
-        print(f"{bcolors.FAIL}Error: extension is not specified.{bcolors.ENDC}")
-        print_usage()
-        sys.exit(93)
+        extension = "jpg"
 
     print('Directory: ' + directory)
 
