@@ -23,11 +23,12 @@ class bcolors:
 
 def print_usage():
     print("Usage:")
-    print("  python add-extension.py [-d directory] [-e extension]")
+    print("  python add-extension.py [-d directory] [-e extension] [--dry-run]")
     print()
     print("Arguments:")
     print("  -d, --directory directory : Specify a directory to scan for files. Omit to use the value from the clipboard.")
     print("  -e, --extension string    : Specify an extension string to append to the filename. Omit to use 'jpg'.")
+    print("      --dry-run             : Run the program without making any change.")
 
 def main(argv):
     try:
