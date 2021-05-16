@@ -22,7 +22,12 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def print_usage():
-    print("Usage: python add-extension.py [-d|--directory] <directory> [-e|--extension] <extension>")
+    print("Usage:")
+    print("  python add-extension.py [-d directory] [-e extension]")
+    print()
+    print("Arguments:")
+    print("  -d, --directory directory : Specify a directory to scan for files. Omit to use the value from the clipboard.")
+    print("  -e, --extension string    : Specify an extension string to append to the filename. Omit to use 'jpg'.")
 
 def main(argv):
     try:
