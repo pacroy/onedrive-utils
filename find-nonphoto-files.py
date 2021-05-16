@@ -16,15 +16,15 @@ class bcolors:
 
 def print_usage():
     print("Usage:")
-    print("  python find-nonphoto-files.py [-d directory]")
+    print("  python find-nonphoto-files.py [-d directory] [--show-all]")
     print()
     print("Arguments:")
     print("  -d, --directory directory : Specify a directory to scan. Omit to use the value from the clipboard.")
     print("  -h, --help                : Print this usage string.")
+    print("      --show-all            : Print all directories. Omit to print only found directories.")
 
-def find_directory(directory, regex):
+def find_directory(directory, regex, show_all):
     count = 0
-    print(f"{directory}", end="")
     for item in os.listdir(directory):
         abspath = os.path.join(directory, item)
         if os.path.isfile(abspath):
@@ -32,9 +32,10 @@ def find_directory(directory, regex):
             if not regex.findall(ext):
                 count += 1
     if count > 0:
-        print(f"\t<-\t{bcolors.WARNING}{count} files found{bcolors.ENDC}")
+        print(f"{directory}\t<-\t{bcolors.WARNING}{count} files found{bcolors.ENDC}")
     else:
-        print()
+        if show_all:
+            print(f"{directory}")
     return count
 
 def main(argv):
@@ -46,6 +47,7 @@ def main(argv):
         sys.exit(90)
 
     directory = ""
+    show_all = False
 
     for opt, arg in opts:
         if opt in ("-h", "--help"):
@@ -53,6 +55,8 @@ def main(argv):
             sys.exit()
         elif opt in ("-d", "--directory"):
             directory = os.path.abspath(arg)
+        elif opt == "--show_all":
+            show_all = True
     
     if not directory:
         directory = pyperclip.paste()
@@ -66,7 +70,7 @@ def main(argv):
 
     extensionRegex = re.compile(r'\.(jpg|jpeg|png|mp4|mov)', re.IGNORECASE)
     for dirpath, dirnames, filenames in os.walk(directory):
-        find_directory(dirpath, extensionRegex)
+        find_directory(dirpath, extensionRegex, show_all)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
