@@ -74,6 +74,8 @@ def main(argv):
                 print(f"{bcolors.WARNING}\t->\t{newname}{bcolors.ENDC}")
                 if not dry_run:
                     shutil.move(abspath, newabspath)
+            else:
+                print()
 
 if __name__ == "__main__":
     main(sys.argv[1:])
