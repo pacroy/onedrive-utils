@@ -1,8 +1,13 @@
 #!/usr/bin/python
 # Add file extention
 # References:
-# - https://www.tutorialspoint.com/python/python_command_line_arguments.htm
-# - https://docs.python.org/3/tutorial/errors.html
+# - [Python - Command Line Arguments - Tutorialspoint](https://www.tutorialspoint.com/python/python_command_line_arguments.htm)
+# - [8. Errors and Exceptions — Python 3.9.5 documentation](https://docs.python.org/3/tutorial/errors.html)
+# - [regex - Using endswith with case insensivity in python - Stack Overflow](https://stackoverflow.com/questions/45637600/using-endswith-with-case-insensivity-in-python)
+# - [Extracting extension from filename in Python - Stack Overflow](https://stackoverflow.com/questions/541390/extracting-extension-from-filename-in-python)
+# - [python - How to print colored text to the terminal? - Stack Overflow](https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal)
+# - [python - How to check if the string is empty? - Stack Overflow](https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty)
+# - [python - How do I check if a variable exists? - Stack Overflow](https://stackoverflow.com/questions/843277/how-do-i-check-if-a-variable-exists)
 import os, sys, getopt, re, shutil
 
 class bcolors:
