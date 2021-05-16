@@ -22,7 +22,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def print_usage():
-    print("Usage: add-extension.py [-d|--directory] <directory> [-e|--extension] <extension>")
+    print("Usage: python add-extension.py [-d|--directory] <directory> [-e|--extension] <extension>")
 
 def main(argv):
     try:
