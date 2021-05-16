@@ -59,8 +59,7 @@ def main(argv):
         print_usage()
         sys.exit(93)
 
-    os.chdir(directory)
-    print('Working Directory: ' + directory)
+    print('Directory: ' + directory)
 
     extensionRegex = re.compile(r'\.(jpg|jpeg|png)', re.IGNORECASE)
 
