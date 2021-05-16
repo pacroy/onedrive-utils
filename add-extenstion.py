@@ -23,17 +23,18 @@ class bcolors:
 
 def print_usage():
     print("Usage:")
-    print("  python add-extension.py [-d directory] [-e extension] [--dry-run]")
+    print("  python add-extension.py [-d directory] [-e extension] [--dry-run] [--show-all]")
     print()
     print("Arguments:")
     print("  -d, --directory directory : Specify a directory to scan for files. Omit to use the value from the clipboard.")
     print("  -e, --extension string    : Specify an extension string to append to the filename. Omit to use 'jpg'.")
     print("      --dry-run             : Run the program without making any change.")
     print("  -h, --help                : Print this usage string.")
+    print("      --show-all            : Print all files. Omit to print only changed files.")
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv, "hd:e:", ["help", "directory=", "extension=", "dry-run"])
+        opts, args = getopt.getopt(argv, "hd:e:", ["help", "directory=", "extension=", "dry-run", "show-all"])
     except getopt.GetoptError as err:
         print(f"{bcolors.FAIL}Error: {err}{bcolors.ENDC}")
         print_usage()
@@ -42,6 +43,7 @@ def main(argv):
     directory = ""
     extension = ""
     dry_run = False
+    show_all = False
 
     for opt, arg in opts:
         if opt in ("-h", "--help"):
@@ -53,6 +55,8 @@ def main(argv):
             extension = arg
         elif opt == "--dry-run":
             dry_run = True
+        elif opt == "--show-all":
+            show_all = True
     
     if not directory:
         directory = pyperclip.paste()
@@ -73,16 +77,16 @@ def main(argv):
     for item in os.listdir(directory):
         abspath = os.path.join(directory, item)
         if os.path.isfile(abspath):
-            print(item, end="")
             filename, ext = os.path.splitext(item)
             if not extensionRegex.findall(ext):
                 newname = item + f".{extension}"
                 newabspath = os.path.join(directory, newname)
-                print(f"{bcolors.WARNING}\t->\t{newname}{bcolors.ENDC}")
+                print(f"{item}\t{bcolors.WARNING}->\t{newname}{bcolors.ENDC}")
                 if not dry_run:
                     shutil.move(abspath, newabspath)
             else:
-                print()
+                if show_all:
+                    print(f"{item}")
 
 if __name__ == "__main__":
     main(sys.argv[1:])
