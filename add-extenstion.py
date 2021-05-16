@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # Add file extention
 # References:
 # - [Python - Command Line Arguments - Tutorialspoint](https://www.tutorialspoint.com/python/python_command_line_arguments.htm)

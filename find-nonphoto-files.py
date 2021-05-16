@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # Find non-photo files in a directory and its all subdirectories
 # References:
 import os, sys, getopt, re, pyperclip
