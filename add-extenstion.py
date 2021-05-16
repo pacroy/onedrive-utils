@@ -8,7 +8,7 @@
 # - [python - How to print colored text to the terminal? - Stack Overflow](https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal)
 # - [python - How to check if the string is empty? - Stack Overflow](https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty)
 # - [python - How do I check if a variable exists? - Stack Overflow](https://stackoverflow.com/questions/843277/how-do-i-check-if-a-variable-exists)
-import os, sys, getopt, re, shutil
+import os, sys, getopt, re, shutil, pyperclip
 
 class bcolors:
     HEADER = '\033[95m'
@@ -47,6 +47,8 @@ def main(argv):
         elif opt == "--dry-run":
             dry_run = True
     
+    if not directory:
+        directory = pyperclip.paste()
     if not directory:
         print(f"{bcolors.FAIL}Error: directory is not specified.{bcolors.ENDC}")
         print_usage()
