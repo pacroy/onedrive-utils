@@ -15,7 +15,12 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def print_usage():
-    print("Usage: python find-nonphoto-files.py [-d|--directory] <directory>")
+    print("Usage:")
+    print("  python find-nonphoto-files.py [-d directory]")
+    print()
+    print("Arguments:")
+    print("  -d, --directory directory : Specify a directory to scan. Omit to use the value from the clipboard.")
+    print("  -h, --help                : Print this usage string.")
 
 def find_directory(directory, regex):
     count = 0
