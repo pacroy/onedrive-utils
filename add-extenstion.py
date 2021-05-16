@@ -32,6 +32,10 @@ def main(argv):
         print_usage()
         sys.exit(90)
 
+    directory = ""
+    extension = ""
+    dry_run = False
+
     for opt, arg in opts:
         if opt in ("-h", "--help"):
             print_usage()
@@ -43,14 +47,14 @@ def main(argv):
         elif opt == "--dry-run":
             dry_run = True
     
-    if "directory" not in locals() or not directory:
+    if not directory:
         print(f"{bcolors.FAIL}Error: directory is not specified.{bcolors.ENDC}")
         print_usage()
         sys.exit(91)
     if not os.path.exists(directory):
         print(f"{bcolors.FAIL}Error: '{directory}' does not exist.{bcolors.ENDC}")
         sys.exit(92)
-    if "extension" not in locals() or not extension:
+    if not extension:
         print(f"{bcolors.FAIL}Error: extension is not specified.{bcolors.ENDC}")
         print_usage()
         sys.exit(93)
