@@ -40,7 +40,7 @@ def find_directory(directory, regex, show_all):
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv, "hd:", ["help", "directory="])
+        opts, args = getopt.getopt(argv, "hd:", ["help", "directory=", "show-all"])
     except getopt.GetoptError as err:
         print(f"{bcolors.FAIL}Error: {err}{bcolors.ENDC}")
         print_usage()
@@ -55,7 +55,7 @@ def main(argv):
             sys.exit()
         elif opt in ("-d", "--directory"):
             directory = os.path.abspath(arg)
-        elif opt == "--show_all":
+        elif opt == "--show-all":
             show_all = True
     
     if not directory:
