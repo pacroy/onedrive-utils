@@ -29,6 +29,7 @@ def print_usage():
     print("  -d, --directory directory : Specify a directory to scan for files. Omit to use the value from the clipboard.")
     print("  -e, --extension string    : Specify an extension string to append to the filename. Omit to use 'jpg'.")
     print("      --dry-run             : Run the program without making any change.")
+    print("  -h, --help                : Print this usage string.")
 
 def main(argv):
     try:
