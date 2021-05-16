@@ -61,7 +61,7 @@ def main(argv):
 
     print('Directory: ' + directory)
 
-    extensionRegex = re.compile(r'\.(jpg|jpeg|png)', re.IGNORECASE)
+    extensionRegex = re.compile(r'\.(jpg|jpeg|png|mp4|mov)', re.IGNORECASE)
 
     for item in os.listdir(directory):
         abspath = os.path.join(directory, item)

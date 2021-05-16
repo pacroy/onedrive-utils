@@ -57,7 +57,7 @@ def main(argv):
         print(f"{bcolors.FAIL}Error: '{directory}' does not exist.{bcolors.ENDC}")
         sys.exit(92)
 
-    extensionRegex = re.compile(r'\.(jpg|jpeg|png)', re.IGNORECASE)
+    extensionRegex = re.compile(r'\.(jpg|jpeg|png|mp4|mov)', re.IGNORECASE)
     for dirpath, dirnames, filenames in os.walk(directory):
         find_directory(dirpath, extensionRegex)
 
