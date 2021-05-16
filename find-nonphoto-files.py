@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Find non-photo files in a directory and its all subdirectories
 # References:
-import os, sys, getopt, re, shutil
+import os, sys, getopt, re, pyperclip
 
 class bcolors:
     HEADER = '\033[95m'
@@ -54,6 +54,8 @@ def main(argv):
         elif opt in ("-d", "--directory"):
             directory = os.path.abspath(arg)
     
+    if not directory:
+        directory = pyperclip.paste()
     if not directory:
         print(f"{bcolors.FAIL}Error: directory is not specified.{bcolors.ENDC}")
         print_usage()
