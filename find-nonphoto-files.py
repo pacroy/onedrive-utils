@@ -14,6 +14,7 @@ class bcolors:
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
 
+
 def print_usage():
     print("Usage:")
     print("  python find-nonphoto-files.py [-d directory] [--show-all]")
@@ -22,6 +23,7 @@ def print_usage():
     print("  -d, --directory directory : Specify a directory to scan. Omit to use the value from the clipboard.")
     print("  -h, --help                : Print this usage string.")
     print("      --show-all            : Print all directories. Omit to print only found directories.")
+
 
 def find_directory(directory, regex, show_all):
     count = 0
@@ -37,6 +39,7 @@ def find_directory(directory, regex, show_all):
         if show_all:
             print(f"{directory}")
     return count
+
 
 def main(argv):
     try:
@@ -71,6 +74,7 @@ def main(argv):
     extensionRegex = re.compile(r"\.(jpg|jpeg|png|mp4|mov)", re.IGNORECASE)
     for dirpath, dirnames, filenames in os.walk(directory):
         find_directory(dirpath, extensionRegex, show_all)
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

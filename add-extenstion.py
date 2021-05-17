@@ -21,6 +21,7 @@ class bcolors:
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
 
+
 def print_usage():
     print("Usage:")
     print("  python add-extension.py [-d directory] [-e extension] [--dry-run] [--show-all]")
@@ -31,6 +32,7 @@ def print_usage():
     print("      --dry-run             : Run the program without making any change.")
     print("  -h, --help                : Print this usage string.")
     print("      --show-all            : Print all files. Omit to print only changed files.")
+
 
 def main(argv):
     try:
@@ -87,6 +89,7 @@ def main(argv):
             else:
                 if show_all:
                     print(f"{item}")
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])
