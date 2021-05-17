@@ -36,7 +36,7 @@ def print_usage():
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv, "hd:e:", ["help", "directory=", "extension=", "dry-run", "show-all"])
+        opts, _ = getopt.getopt(argv, "hd:e:", ["help", "directory=", "extension=", "dry-run", "show-all"])
     except getopt.GetoptError as err:
         print(f"{bcolors.FAIL}Error: {err}{bcolors.ENDC}")
         print_usage()
@@ -79,7 +79,7 @@ def main(argv):
     for item in os.listdir(directory):
         abspath = os.path.join(directory, item)
         if os.path.isfile(abspath):
-            filename, ext = os.path.splitext(item)
+            _, ext = os.path.splitext(item)
             if not extensionRegex.findall(ext):
                 newname = item + f".{extension}"
                 newabspath = os.path.join(directory, newname)

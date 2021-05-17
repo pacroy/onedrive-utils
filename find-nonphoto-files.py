@@ -30,7 +30,7 @@ def find_directory(directory, regex, show_all):
     for item in os.listdir(directory):
         abspath = os.path.join(directory, item)
         if os.path.isfile(abspath):
-            filename, ext = os.path.splitext(item)
+            _, ext = os.path.splitext(item)
             if not regex.findall(ext):
                 count += 1
     if count > 0:
@@ -43,7 +43,7 @@ def find_directory(directory, regex, show_all):
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv, "hd:", ["help", "directory=", "show-all"])
+        opts, _ = getopt.getopt(argv, "hd:", ["help", "directory=", "show-all"])
     except getopt.GetoptError as err:
         print(f"{bcolors.FAIL}Error: {err}{bcolors.ENDC}")
         print_usage()
@@ -72,7 +72,7 @@ def main(argv):
         sys.exit(92)
 
     extensionRegex = re.compile(r"\.(jpg|jpeg|png|mp4|mov)", re.IGNORECASE)
-    for dirpath, dirnames, filenames in os.walk(directory):
+    for dirpath, _, _ in os.walk(directory):
         find_directory(dirpath, extensionRegex, show_all)
 
 
