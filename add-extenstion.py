@@ -11,15 +11,15 @@
 import os, sys, getopt, re, shutil, pyperclip
 
 class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
 
 def print_usage():
     print("Usage:")
@@ -70,9 +70,9 @@ def main(argv):
     if not extension:
         extension = "jpg"
 
-    print('Directory: ' + directory)
+    print("Directory: " + directory)
 
-    extensionRegex = re.compile(r'\.(jpg|jpeg|png|mp4|mov)', re.IGNORECASE)
+    extensionRegex = re.compile(r"\.(jpg|jpeg|png|mp4|mov)", re.IGNORECASE)
 
     for item in os.listdir(directory):
         abspath = os.path.join(directory, item)
